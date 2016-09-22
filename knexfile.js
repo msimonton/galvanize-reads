@@ -4,16 +4,14 @@ module.exports = {
 
   development: {
     client: 'postgres',
-    connection:'galvanize-reads'
+    connection:{
+      database:'greads'
+    }
   },
 
   production: {
     client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    connection: 'galvanize-reads',
     pool: {
       min: 2,
       max: 10
