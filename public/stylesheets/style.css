@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+#books  {
+  display: inline-block;
+  height:500px%;
+  width: 44%;
+}
+
+#authors  {
+  display: inline-block;
+  height:500px;
+  width: 44%;
+}
+#newauth {
+  display: block;
+}

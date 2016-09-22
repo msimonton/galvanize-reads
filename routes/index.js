@@ -4,11 +4,22 @@ var query = require('../querys');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Galvinize Reads' });
 });
 router.get('/new_author', function(req, res, next) {
   res.render('new_author');
 });
+
+
+router.get('/authors',  function(req,res,next)  {
+  res.render('authors');
+})
+
+router.get('/books',  function(req,res,next)  {
+  res.render('books');
+})
+
+
 
 
 
