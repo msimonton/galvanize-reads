@@ -12,12 +12,24 @@ router.get('/new_author', function(req, res, next) {
 
 
 router.get('/authors',  function(req,res,next)  {
+  query.getAllAuthors()
+  .then(function(data)  {
+    res.send(data);
+  })
+  .catch(function(err)  {
+    return next(err)
+  })
+})
+router.get('/authors',  function(req,res,next)  {
   res.render('authors');
 })
+
 
 router.get('/books',  function(req,res,next)  {
   res.render('books');
 })
+
+query.getAllAuthors()
 
 
 
