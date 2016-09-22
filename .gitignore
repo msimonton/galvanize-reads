@@ -4,6 +4,8 @@ logs
 
 node_modules
 
+.env
+
 # Runtime data
 pids
 *.pid
