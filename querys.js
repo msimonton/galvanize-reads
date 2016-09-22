@@ -13,9 +13,9 @@ module.exports = {
       biography: biography,
 		})
 	},
-// 	findAuthorByName: function(first_name,last_name){
-// 		return Authors().where({
-//       'first_name':first_name,
-//       'last_name':last_name})
-// }
+	findAuthorByName: function(first_name,last_name){
+		return Authors().where({
+      'first_name':first_name,
+      'last_name':last_name})
+}
 }

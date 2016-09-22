@@ -14,7 +14,7 @@ router.get('/new_author', function(req, res, next) {
 
 router.post('/new_author', function(req, res, next) {
 
-	query.addAuthor(req.body.first_name, req.body.last_name, req.body.biography)
+	query.addAuthor(req.body.author_first, req.body.author_last, req.body.biography)
 	.then(function(data) {
 		res.redirect('/');
 	})
