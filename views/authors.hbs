@@ -1,11 +1,14 @@
 {{#each authors}}
 <div>
-  <div class='col-xs-2'>
+  <div class='col-lg-2'>
     <img src="{{this.portrait_url}}">
-  <div class='col-xs-10'>
-    <h4>{{this.first_name}}{{this.last_name}}</h4>
+  <div class='col-lg-1'>
+    <h4>  <a href="/{{this.id}}/about_author">{{this.first_name}} {{this.last_name}}</a></h4>
     {{this.biography}}
   </div>
 </div>
 </div>
+
+
+<a href='delete/{{author.id}}'>Delete</a>
 {{/each}}

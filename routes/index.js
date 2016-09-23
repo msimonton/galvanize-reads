@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var query = require('../querys');
+var query = require('../db/queries');
 var knex = require('../db/knex')
+var pg = require('../db/knex.js')
 
 
 
@@ -14,12 +15,34 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.get('/authors', function(req,res,next) {
-  knex('authors').select()
-  .then(function(authors) {
-    res.render('authors', {authors:authors})
+router.get('/:id/about_author', function(req, res, next){
+  knex('authors').where({id:req.params.id}).first()
+  .then(function(author){
+    res.render('about_author', {authors: author})
   })
+})
 
+
+router.get('/:id/delete_auth', function(req, res, next){
+  pg('authors').where({id:req.params.id}).first()
+  .then(function(author){
+    res.render('delete_auth', {authors: author})
+  })
+})
+
+//
+// router.get('/:id/delete_auth', function(req,res){
+//   queries.Authors.deleteAuthor(req.params.id)
+//   .then(function(){
+//     res.redirect('/authors')
+//   })
+// })
+
+router.post('/:id/delete_auth', function(req, res, next){
+  pg('authors').where({id:req.params.id}).del()
+  .then(function(author){
+    res.redirect('/authors')
+  })
 })
 
 
@@ -36,9 +59,19 @@ router.get('/authors', function(req,res,next) {
 
 
 
+router.get('/authors', function(req,res,next) {
+  knex('authors').select()
+  .then(function(authors) {
+    res.render('authors', {authors:authors})
+  })
+})
 
-
-
+//   router.delete('/authors/delete_auth/:id', function(req,res,next)  {
+//     query.deleteAuthor(req.params.id).then(function() {
+//       res.redirect('/authors')
+//     })
+//   })
+//
 router.get('/new_author', function(req, res, next) {
   res.render('new_author');
 });
