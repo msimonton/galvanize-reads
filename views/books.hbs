@@ -1,0 +1,14 @@
+{{#each books}}
+<div>
+  <div class='col-lg-2'>
+    <img src="{{this.cover_url}}">
+  <div class='col-lg-1'>
+    <h4>  <a href="/{{this.id}}/about_books">{{this.book_name}} {{this.book_genre}}</a></h4>
+    {{this.book_description}}
+  </div>
+</div>
+</div>
+
+
+
+{{/each}}

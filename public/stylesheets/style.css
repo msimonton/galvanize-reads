@@ -2,7 +2,28 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+#glogo  {
+  display: inline-block;
+}
+#bannertext  {
+  display: inline-block;
+}
 
 a {
   color: #00B7FF;
 }
+
+#books  {
+  display: inline-block;
+  height:500px%;
+  width: 44%;
+}
+
+/*#authors  {
+  display: inline-block;
+  height:500px;
+  width: 44%;
+}
+#newauth {
+  display: block;
+}*/
