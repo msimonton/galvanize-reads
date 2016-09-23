@@ -1,35 +1,60 @@
 var express = require('express');
 var router = express.Router();
 var query = require('../querys');
+var knex = require('../db/knex')
+
+
+
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Galvinize Reads' });
+
 });
+
+router.get('/authors', function(req,res,next) {
+  knex('authors').select()
+  .then(function(authors) {
+    res.render('authors', {authors:authors})
+  })
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 router.get('/new_author', function(req, res, next) {
   res.render('new_author');
 });
 
 
-router.get('/authors',  function(req,res,next)  {
-  query.getAllAuthors()
-  .then(function(data)  {
-    res.send(data);
-  })
-  .catch(function(err)  {
-    return next(err)
-  })
-})
-router.get('/authors',  function(req,res,next)  {
-  res.render('authors');
-})
+// router.get('/authors', function(req, res, next) {
+//   knex('authors').select().then(function(authors){
+//   res.render('authors', {authors: authors});
+//   });
+// });
 
 
 router.get('/books',  function(req,res,next)  {
   res.render('books');
 })
 
-query.getAllAuthors()
 
 
 
