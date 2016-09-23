@@ -11,7 +11,9 @@ Authors:{
     return knex('authors')
   }},
 
-
+  addNewBook: function(book) {
+    return knex('authors').insert(book);
+  },
 
 
 addNewAuthor: function(author) {

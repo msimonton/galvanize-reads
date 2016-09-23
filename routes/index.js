@@ -51,6 +51,12 @@ router.post('/:id/delete_auth', function(req, res, next){
 
 
 
+router.get('/books', function(req,res,next) {
+  knex('books').select()
+  .then(function(books) {
+    res.render('books', {books:books})
+  })
+})
 
 
 
@@ -84,13 +90,16 @@ router.get('/new_author', function(req, res, next) {
 // });
 
 
-router.get('/books',  function(req,res,next)  {
-  res.render('books');
+router.post('/new_book', function(req, res, next) {
+
+	query.addNewBook(req.body.author_first, req.body.author_last, req.body.biography)
+	.then(function(data) {
+		res.redirect('/');
+	})
+	.catch(function(err) {
+		return next(err);
+	})
 })
-
-
-
-
 
 
 router.post('/new_author', function(req, res, next) {

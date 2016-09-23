@@ -1,0 +1,6 @@
+<form action="/{{books.id}}/delete_book" method="post">
+  <img class="booksdelete" src="{{books.cover_url}}">
+  <h3>{{books.book_name}} {{books.book_genre}}</h3>
+  <p>{{books.book_description}}</p>
+  <button type="submit">Delete {{books.book_name}}?</button>
+</form>

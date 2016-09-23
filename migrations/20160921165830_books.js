@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     table.string('book_name')
     table.string('book_genre')
     table.text('book_description')
+    table.string('cover_url')
 
 
   })
